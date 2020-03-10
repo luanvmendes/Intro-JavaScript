@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso JavaScript</title>
+    </head>
+    <body>
+        <div id="app">
+            <!--Video 1-->
+            <button onclick="mostraAlerta()">Me pressione</button>
+            <br><br>
+            <!--Video 2-->
+            <input type="text" name="nome" id="nome" class="nome" />
+            <button class="botao">Adicionar</button>
+            <br><br>
+            <!--Video 3-->
+            <input id="teste" />
+            <!--Video 4-->
+            <div class="box "></div>
+        </div>
+
+
+
+        <script>
+            //video1
+            function mostraAlerta() {
+                alert('Botão foi clicado');
+            }
+            //video2
+            var inputElement = document.getElementById('nome'); //buscando elemento pela Id
+            var inputElement = document.getElementsByTagName('input')[0]; //buscando pela tag
+            var inputElement = document.getElementsByClassName('nome')[0]; //buscando pela classe            
+            var inputElement = document.querySelector('div#app input'); //especificando onde buscar        
+            var inputElement = document.querySelector('input[name=nome]'); //especificando onde buscar
+            console.log(inputElement)
+
+            var inputElement = document.querySelector('input[name=nome]');
+            var btnElement = document.querySelector('button.botao');
+            btnElement.onclick = function() {
+                var text = inputElement.value;
+                alert(text);
+            }
+
+            //video3
+            var linkElement = document.createElement('a');
+            linkElement.setAttribute('href', 'https://dotnetcoretutorials.com/');
+            linkElement.setAttribute('title', 'Site .Net Core');
+            var textElement = document.createTextNode('Acessar site .Net Core');
+            linkElement.appendChild(textElement);
+
+            var containerElement = document.querySelector('#app');
+            containerElement.appendChild(linkElement);
+
+            var inputElement = document.querySelector('#teste');
+            containerElement.removeChild(inputElement);
+
+            //video4
+            var boxElement = document.querySelector('.box');
+
+            boxElement.style.width = 100;
+            boxElement.style.height = 100;
+            boxElement.style.backgroundColor = '#f00';
+        </script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Curso JS</title>
+    </head>
+    <body>
+        <script>
+            function exibe() {
+                console.log('teste');
+            }
+
+            //setInterval(exibe, 1000) //exibe a cada 1 segundo
+            //setTimeout(exibe, 5000) //exibe após 5 segundos
+
+
+            //Exercício 1
+            var rua = "Rua dos pinheiros";
+            var numero = 1293;
+            var bairro = "Centro";
+            var cidade = "São Paulo";
+            var uf = "SP";
+
+            function dadosUser(rua, num, bairro, cidade, uf){
+                var endereco = {
+                    rua, num, bairro, cidade, uf
+                };
+                return "O usuário mora em " + cidade + " / " + uf + ", no bairro " + bairro + ', na rua "' + rua + '" com nº ' + num + ".";
+            }
+            
+            console.log(dadosUser(rua, numero, bairro, cidade, uf))
+
+
+            /*Exercicio 2
+            function pares(x, y){
+                for (i = x; i<= y; i++){
+                    if (i % 2 === 0){
+                        console.log(i);   
+                    }
+                }
+            }
+            pares(32,321);
+            */
+
+            //Exercicio 3
+            function temHabilidade(skills) {
+                return skills.indexOf("ReactJS") === -1 ? false : true;
+            }
+            var skills = ["Javascript", "ReactJS", "ReactNative"];
+            console.log(temHabilidade(skills));
+
+            //Exercicio 4 
+            function experiencia(anos){
+                return anos < 1 ? "Iniciante" : anos >= 1 && anos < 3 ? "Intermediário"
+                : anos >= 3 && anos <= 6 ? "Avançado" : "Jedi Master";
+            }
+
+            var anosEstudo = 7;
+            console.log(experiencia(anosEstudo));
+
+            //Exercício 5
+            var nome, habilidades;
+            var usuarios = [
+                {
+                    nome: "Diego",
+                    habilidades: ["Javascript", "ReactJS", "Redux"]
+                },
+                {
+                    nome: "Gabriel",
+                    habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+                }
+            ];
+
+            function userTemHabilidade (user){
+                for (let value of user){
+                    console.log("O " + value.nome + " possui as habilidades: " + value.habilidades.join([separator = ", "]));
+                }
+            }
+
+            userTemHabilidade(usuarios);
+
+        </script>
+    </body>
+</html>
