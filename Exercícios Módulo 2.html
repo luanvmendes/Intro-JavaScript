@@ -5,20 +5,60 @@
     </head>
     <body>
         <button class="botao">Criar quadrado</button>
-        <div class="box"></div>
 
 
         <script>
+            //Exercício 1
             var btnElement = document.querySelector('button.botao');
             btnElement.onclick = function() {
-                var boxElement = document.querySelector('.box');
-
-                boxElement.style.width = 100;
-                boxElement.style.height = 100;
-                boxElement.style.backgroundColor = '#f00';
-                var novaDiv = boxElement.cloneNode(true);
-                boxElement.parentNode.insertBefore(novaDiv, null);
+                var novaDiv = document.createElement('div');
+                novaDiv.setAttribute('onmouseover', 'this.style.backgroundColor = getRandomColor()'); // exercicio 2
+                novaDiv.style.width = 100;
+                novaDiv.style.height = 100;
+                novaDiv.style.backgroundColor = '#f00';
+                novaDiv.style.marginTop = '5px';
+                document.body.insertBefore(novaDiv, null);           
             }
+
+            //Exercício 2
+            function getRandomColor(){
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++){
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            //var newColor = getRandomColor();
+
+            //Exercício 3
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+            var novaLista = document.createElement('ul');
+            for (i = 0; i < nomes.length; i++) {
+                var itemLista = document.createElement('li');
+                itemLista.innerHTML = nomes[i]
+                novaLista.appendChild(itemLista);
+            }
+            document.body.insertBefore(novaLista, null); 
+
+            //Exercício 4
+            var input = document.createElement('input');
+            input.setAttribute('name', 'nome');
+            input.setAttribute('type', 'text');
+            var botao = document.createElement('button');
+            botao.setAttribute('onclick', 'adicionar()');
+            botao.innerHTML = 'Adicionar';
+            document.body.insertBefore(input, null);
+            document.body.insertBefore(botao, null);
+
+            function adicionar() {
+                var itemLista = document.createElement('li');
+                itemLista.innerHTML = input.value;
+                novaLista.appendChild(itemLista);
+                input.value = "";
+            }
+
         </script>
     </body>
 </html>
